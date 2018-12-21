@@ -1,0 +1,12 @@
+#pragma once
+#include <iostream>
+#include "MergeSort.h"
+#include "MyPrintfunc.h"
+#include "BubbleSort.h"
+#include "ShellSort.h"
+#include "QuickSort.h"
+#include "SelectSort.h"
+#include "YoungSearch.h"
+#include "BinarySearchTree.h"
+#include "RBTree.h"
+#include "MatrixChainOrder.h"
