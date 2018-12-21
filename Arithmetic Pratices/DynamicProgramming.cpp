@@ -5,7 +5,7 @@ void MaxChainOrder(int p[], int n)
 	//下面申请的两个动态数组的第0个元素都不使用
 	//动态申请整型数组m[n][n]
 	int **m = new int*[n + 1];				//m为指针数组，每一个元素都是一个整型指针
-	for (int i = 0; i < n + 1; i++)			
+	for (int i = 0; i < n + 1; i++)
 	{
 		m[i] = new int[n + 1];				//m[i]指向一个整型数组
 	}
@@ -73,31 +73,31 @@ void LCS_Length(string x, string y)
 {
 	//下面申请的两个动态数组的第0个元素都不使用
 	//动态申请整型数组c[m][n]
-	std::size_t m = x.length();
-	std::size_t n = y.length();
+	size_t m = x.length();
+	size_t n = y.length();
 	int **c = new int*[m + 1];				//c为指针数组，每一个元素都是一个整型指针
-	for (int i = 0; i < m + 1; i++)
+	for (size_t i = 0; i < m + 1; i++)
 	{
 		c[i] = new int[n + 1];				//c[i]指向一个整型数组
 	}
 	//动态申请整型数组b[m][n]
 	int **b = new int*[m + 1];				//b为指针数组，每一个元素都是一个整型指针
-	for (int i = 0; i < m + 1; i++)
+	for (size_t i = 0; i < m + 1; i++)
 	{
 		b[i] = new int[n + 1];				//b[i]指向一个整型数组
 	}
 	//TODO:在此放置动态规划代码
-	for (int i = 1; i <= m; i++)
+	for (size_t i = 1; i <= m; i++)
 	{
 		c[i][0] = 0;
 	}
-	for (int j = 0; j <= n; j++)
+	for (size_t j = 0; j <= n; j++)
 	{
 		c[0][j] = 0;
 	}
-	for (int i = 1; i <= m; i++)
+	for (size_t i = 1; i <= m; i++)
 	{
-		for (int j = 1; j <= n; j++)
+		for (size_t j = 1; j <= n; j++)
 		{
 			if (x[i - 1] == y[j - 1])
 			{
@@ -118,23 +118,23 @@ void LCS_Length(string x, string y)
 	}
 	//打印结果
 	cout << "最长公共子序列长度：" << c[m][n] << endl;
-	cout << "最长公共子序列内容：" ;
+	cout << "最长公共子序列内容：";
 	PrintLCS(b, x, x.length(), y.length());
 	//销毁整型数组c[m][n]
-	for (int i = 0; i < m + 1; i++)
+	for (size_t i = 0; i < m + 1; i++)
 	{
 		delete[] c[i];
 	}
 	delete[] c;
 	//销毁整型数组b[m][n]
-	for (int i = 0; i < m + 1; i++)
+	for (size_t i = 0; i < m + 1; i++)
 	{
 		delete[] b[i];
 	}
 	delete[] b;
 }
 
-void PrintLCS(int **b, string x, std::size_t i, std::size_t j)
+void PrintLCS(int **b, string x, size_t i, size_t j)
 {
 	if (i == 0 || j == 0)
 	{
@@ -153,4 +153,36 @@ void PrintLCS(int **b, string x, std::size_t i, std::size_t j)
 	{
 		PrintLCS(b, x, i, j - 1);
 	}
+}
+
+//最优二叉查找树
+void OptimalBST(vector<int> p, vector<int> q)
+{
+	int n = p.size();
+	//动态申请整型数组m[n][n]
+	int **e = new int*[n + 2];				//m为指针数组，每一个元素都是一个整型指针
+	for (int i = 0; i <= n + 1; i++)
+	{
+		e[i] = new int[n + 1];				//m[i]指向一个整型数组
+	}
+	//动态申请整型数组s[n][n]
+	int **w = new int*[n + 1];				//s为指针数组，每一个元素都是一个整型指针
+	for (int i = 0; i <= n + 1; i++)
+	{
+		w[i] = new int[n + 1];				//s[i]指向一个整型数组
+	}
+	//TODO:在此放置动态规划代码
+
+	//销毁整型数组m[n][n]
+	for (int i = 0; i <= n + 1; i++)
+	{
+		delete[] e[i];
+	}
+	delete[] e;
+	//销毁整型数组s[n][n]
+	for (int i = 0; i <= n + 1; i++)
+	{
+		delete[] w[i];
+	}
+	delete[] w;
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include <climits>
 #include <string>
+#include <vector>
 #ifndef MY_INFINITE
 #define MY_INFINITE INT_MAX
 #endif // !MY_INFINITE
@@ -14,4 +15,6 @@ void MaxChainOrder(int p[], int n);
 void PrintMatrixParenthesis(int**, int**, int, int);
 //最长公共子序列的计算
 void LCS_Length(string, string);
-void PrintLCS(int**, string, std::size_t, std::size_t);
+void PrintLCS(int**, string, size_t, size_t);
+//最优二叉查找树
+void OptimalBST(vector<int>, vector<int>);
