@@ -68,3 +68,28 @@ void PrintMatrixParenthesis(int **m, int **s, int i, int j)
 		cout << ")";
 	}
 }
+
+void LCS_Length(char *x, char *y)
+{
+}
+
+void PrintLCS(int **b, char *x, int i, int j)
+{
+	if (i == 0 || j == 0)
+	{
+		return;
+	}
+	if (b[i][j] == DIR_DIAgonal)
+	{
+		PrintLCS(b, x, i - 1, j - 1);
+		cout << x[i];
+	}
+	else if (b[i][j] == DIR_UP)
+	{
+		PrintLCS(b, x, i - 1, j);
+	}
+	else
+	{
+		PrintLCS(b, x, i, j - 1);
+	}
+}
