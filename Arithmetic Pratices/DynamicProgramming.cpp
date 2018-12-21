@@ -120,13 +120,13 @@ void LCS_Length(string x, string y)
 	cout << "最长公共子序列长度：" << c[m][n] << endl;
 	cout << "最长公共子序列内容：" ;
 	PrintLCS(b, x, x.length(), y.length());
-	//销毁整型数组c[n][n]
+	//销毁整型数组c[m][n]
 	for (int i = 0; i < m + 1; i++)
 	{
 		delete[] c[i];
 	}
 	delete[] c;
-	//销毁整型数组b[n][n]
+	//销毁整型数组b[m][n]
 	for (int i = 0; i < m + 1; i++)
 	{
 		delete[] b[i];
