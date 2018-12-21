@@ -51,7 +51,7 @@
     <ClInclude Include="RBTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MatrixChainOrder.h">
+    <ClInclude Include="DynamicProgramming.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -89,7 +89,7 @@
     <ClCompile Include="RBTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MatrixChainOrder.cpp">
+    <ClCompile Include="DynamicProgramming.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

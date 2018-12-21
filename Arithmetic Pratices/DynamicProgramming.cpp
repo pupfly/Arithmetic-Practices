@@ -1,4 +1,4 @@
-#include "MatrixChainOrder.h"
+#include "DynamicProgramming.h"
 using namespace std;
 void MaxChainOrder(int p[], int n)
 {
