@@ -144,4 +144,7 @@ void TestDynamicProgramming()
 	PrintArray(MatrixDimension, GET_ARRAY_ELEMENTS_NUM(MatrixDimension), "矩阵维度信息:");
 	MaxChainOrder(MatrixDimension, GET_ARRAY_ELEMENTS_NUM(MatrixDimension) - 1);
 	cout << endl;
+	cout << "测试最长公共子序列动态规划：" << endl;
+	LCS_Length("ABCBDAB", "BDCABA");
+	cout << endl;
 }

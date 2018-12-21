@@ -69,11 +69,72 @@ void PrintMatrixParenthesis(int **m, int **s, int i, int j)
 	}
 }
 
-void LCS_Length(char *x, char *y)
+void LCS_Length(string x, string y)
 {
+	//下面申请的两个动态数组的第0个元素都不使用
+	//动态申请整型数组c[m][n]
+	std::size_t m = x.length();
+	std::size_t n = y.length();
+	int **c = new int*[m + 1];				//c为指针数组，每一个元素都是一个整型指针
+	for (int i = 0; i < m + 1; i++)
+	{
+		c[i] = new int[n + 1];				//c[i]指向一个整型数组
+	}
+	//动态申请整型数组b[m][n]
+	int **b = new int*[m + 1];				//b为指针数组，每一个元素都是一个整型指针
+	for (int i = 0; i < m + 1; i++)
+	{
+		b[i] = new int[n + 1];				//b[i]指向一个整型数组
+	}
+	//TODO:在此放置动态规划代码
+	for (int i = 1; i <= m; i++)
+	{
+		c[i][0] = 0;
+	}
+	for (int j = 0; j <= n; j++)
+	{
+		c[0][j] = 0;
+	}
+	for (int i = 1; i <= m; i++)
+	{
+		for (int j = 1; j <= n; j++)
+		{
+			if (x[i - 1] == y[j - 1])
+			{
+				c[i][j] = c[i - 1][j - 1] + 1;
+				b[i][j] = DIR_DIAgonal;
+			}
+			else if (c[i - 1][j] >= c[i][j - 1])
+			{
+				c[i][j] = c[i - 1][j];
+				b[i][j] = DIR_UP;
+			}
+			else
+			{
+				c[i][j] = c[i][j - 1];
+				b[i][j] = DIR_LEFT;
+			}
+		}
+	}
+	//打印结果
+	cout << "最长公共子序列长度：" << c[m][n] << endl;
+	cout << "最长公共子序列内容：" ;
+	PrintLCS(b, x, x.length(), y.length());
+	//销毁整型数组c[n][n]
+	for (int i = 0; i < m + 1; i++)
+	{
+		delete[] c[i];
+	}
+	delete[] c;
+	//销毁整型数组b[n][n]
+	for (int i = 0; i < m + 1; i++)
+	{
+		delete[] b[i];
+	}
+	delete[] b;
 }
 
-void PrintLCS(int **b, char *x, int i, int j)
+void PrintLCS(int **b, string x, std::size_t i, std::size_t j)
 {
 	if (i == 0 || j == 0)
 	{
@@ -82,7 +143,7 @@ void PrintLCS(int **b, char *x, int i, int j)
 	if (b[i][j] == DIR_DIAgonal)
 	{
 		PrintLCS(b, x, i - 1, j - 1);
-		cout << x[i];
+		cout << x[i - 1];
 	}
 	else if (b[i][j] == DIR_UP)
 	{
