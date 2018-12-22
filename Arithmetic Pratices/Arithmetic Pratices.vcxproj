@@ -22,7 +22,7 @@
     <ProjectGuid>{0FAF190C-AEE4-4522-947D-9BA9374CFCB6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ArithmeticPratices</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

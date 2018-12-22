@@ -147,4 +147,6 @@ void TestDynamicProgramming()
 	cout << "测试最长公共子序列动态规划：" << endl;
 	LCS_Length("abcdefg", "aebtcyduehf");
 	cout << endl;
+	cout << "测试最优二叉搜索树动态规划：" << endl;
+	OptimalBST({ 0.15, 0.10, 0.05, 0.10, 0.20 }, { 0.05,0.10,0.05,0.05,0.05,0.10 });
 }
