@@ -153,6 +153,7 @@
     <ClInclude Include="DynamicProgramming.h" />
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="MyPrintfunc.h" />
+    <ClInclude Include="Permutation.h" />
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="RBTree.h" />
     <ClInclude Include="SelectSort.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="DynamicProgramming.cpp" />
     <ClCompile Include="MergeSort.cpp" />
+    <ClCompile Include="Permutation.cpp" />
     <ClCompile Include="QuickSort.cpp" />
     <ClCompile Include="RBTree.cpp" />
     <ClCompile Include="SelectSort.cpp" />

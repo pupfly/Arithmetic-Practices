@@ -6,3 +6,4 @@ void TestSearch();
 void TestBinaryTree();
 void TestRBTree();
 void TestDynamicProgramming();
+void TestPermutation();

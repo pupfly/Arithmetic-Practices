@@ -148,5 +148,12 @@ void TestDynamicProgramming()
 	LCS_Length("abcdefg", "aebtcyduehf");
 	cout << endl;
 	cout << "测试最优二叉搜索树动态规划：" << endl;
-	OptimalBST({ 0.15, 0.10, 0.05, 0.10, 0.20 }, { 0.05,0.10,0.05,0.05,0.05,0.10 });
+	OptimalBST({ 0.04, 0.06, 0.08, 0.02, 0.10, 0.12, 0.14 }, { 0.06, 0.06, 0.06, 0.06, 0.05, 0.05, 0.05, 0.05 });
+}
+
+void TestPermutation()
+{
+	string s("123");
+	cout << "测试递归全排列：" << endl;
+	RecursivePermutation(s);
 }

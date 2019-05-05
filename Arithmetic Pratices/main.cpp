@@ -7,5 +7,6 @@ int main()
 	TestBinaryTree();
 	TestRBTree();
 	TestDynamicProgramming();
+	TestPermutation();
 	return 0;
 }
