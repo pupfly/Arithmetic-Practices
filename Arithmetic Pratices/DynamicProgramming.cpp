@@ -158,7 +158,7 @@ void PrintLCS(int **b, string x, size_t i, size_t j)
 //最优二叉查找树
 void OptimalBST(vector<double> p, vector<double> q)
 {
-	int n = p.size();
+	int n = (int)p.size();
 	//动态申请整型数组e[n][n]
 	double **e = new double*[n + 2];				//m为指针数组，每一个元素都是一个整型指针
 	for (int i = 0; i <= n + 1; i++)

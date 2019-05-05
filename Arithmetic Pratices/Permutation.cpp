@@ -2,7 +2,7 @@
 
 void RecursivePermutation(string s)
 {
-	RecursivePermutation(s, 0, s.length() - 1);
+	RecursivePermutation(s, 0, (int)(s.length() - 1));
 }
 
 void RecursivePermutation(string & s, int start, int end)
