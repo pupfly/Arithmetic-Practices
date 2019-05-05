@@ -54,6 +54,9 @@
     <ClInclude Include="DynamicProgramming.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Permutation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MergeSort.cpp">
@@ -90,6 +93,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DynamicProgramming.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Permutation.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

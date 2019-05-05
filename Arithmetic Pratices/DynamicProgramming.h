@@ -17,4 +17,5 @@ void PrintMatrixParenthesis(int**, int**, int, int);
 void LCS_Length(string, string);
 void PrintLCS(int**, string, size_t, size_t);
 //最优二叉查找树
-void OptimalBST(vector<int>, vector<int>);
+void OptimalBST(vector<double>, vector<double>);
+void ConstructOptimalBST(int**, int, int);

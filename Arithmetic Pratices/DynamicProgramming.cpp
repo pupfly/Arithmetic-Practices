@@ -156,33 +156,98 @@ void PrintLCS(int **b, string x, size_t i, size_t j)
 }
 
 //最优二叉查找树
-void OptimalBST(vector<int> p, vector<int> q)
+void OptimalBST(vector<double> p, vector<double> q)
 {
-	int n = (int)p.size();
-	//动态申请整型数组m[n][n]
-	int **e = new int*[n + 2];				//m为指针数组，每一个元素都是一个整型指针
+	int n = p.size();
+	//动态申请整型数组e[n][n]
+	double **e = new double*[n + 2];				//m为指针数组，每一个元素都是一个整型指针
 	for (int i = 0; i <= n + 1; i++)
 	{
-		e[i] = new int[n + 1];				//m[i]指向一个整型数组
+		e[i] = new double[n + 1];				//m[i]指向一个整型数组
 	}
-	//动态申请整型数组s[n][n]
-	int **w = new int*[n + 1];				//s为指针数组，每一个元素都是一个整型指针
+	//动态申请整型数组w[n][n]
+	double **w = new double*[n + 2];				//s为指针数组，每一个元素都是一个整型指针
 	for (int i = 0; i <= n + 1; i++)
 	{
-		w[i] = new int[n + 1];				//s[i]指向一个整型数组
+		w[i] = new double[n + 1];				//s[i]指向一个整型数组
+	}
+	//动态申请整型数组root[n][n]
+	int **root = new int*[n + 1];				//root为指针数组，每一个元素都是一个整型指针
+	for (int i = 0; i <= n; i++)
+	{
+		root[i] = new int[n + 1];				//root[i]指向一个整型数组
 	}
 	//TODO:在此放置动态规划代码
-
-	//销毁整型数组m[n][n]
+	for (int i = 1; i <= n + 1; i++)
+	{
+		e[i][i - 1] = q[i - 1];
+		w[i][i - 1] = q[i - 1];
+	}
+	for (int l = 1; l <= n; l++)
+	{
+		for (int i = 1; i <= n - l + 1; i++)
+		{
+			int j = i + l - 1;
+			e[i][j] = INT_MAX;
+			w[i][j] = w[i][j - 1] + p[j - 1] + q[j];
+			for (int r = i; r <= j; r++)
+			{
+				double t = e[i][r - 1] + e[r + 1][j] + w[i][j];
+				if (t < e[i][j])
+				{
+					e[i][j] = t;
+					root[i][j] = r;
+				}
+			}
+		}
+	}
+	//打印结果
+	cout << "k" << root[1][n] << "是根" << endl;
+	ConstructOptimalBST(root, 1, n);
+	//销毁整型数组e[n][n]
 	for (int i = 0; i <= n + 1; i++)
 	{
 		delete[] e[i];
 	}
 	delete[] e;
-	//销毁整型数组s[n][n]
+	//销毁整型数组w[n][n]
 	for (int i = 0; i <= n + 1; i++)
 	{
 		delete[] w[i];
 	}
 	delete[] w;
+	//销毁整型数组root[n][n]
+	for (int i = 0; i <= n; i++)
+	{
+		delete[] root[i];
+	}
+	delete[] root;
+}
+
+void ConstructOptimalBST(int **root, int i, int j)
+{
+	if (root[i][j] > i && root[i][j] < j)
+	{
+		cout << "k" << root[i][root[i][j] - 1] << "是k" << root[i][j] << "的左孩子" << endl;
+		ConstructOptimalBST(root, i, root[i][j] - 1);
+		cout << "k" << root[root[i][j] + 1][j] << "是k" << root[i][j] << "的右孩子" << endl;
+		ConstructOptimalBST(root, root[i][j] + 1, j);
+	}
+	else if (root[i][j] == i && root[i][j] == j)
+	{
+		cout << "d" << i - 1 << "是k" << i << "的左孩子" << endl;
+		cout << "d" << i << "是k" << i << "的右孩子" << endl;
+	}
+	else if (root[i][j] == i)
+	{
+		cout << "k" << root[root[i][j] + 1][j] << "是k" << root[i][j] << "的右孩子" << endl;
+		ConstructOptimalBST(root, root[i][j] + 1, j);
+		cout << "d" << i - 1 << "是k" << i << "的左孩子" << endl;
+	}
+	else
+	{
+		cout << "k" << root[i][root[i][j] - 1] << "是k" << root[i][j] << "的左孩子" << endl;
+		ConstructOptimalBST(root, i, root[i][j] - 1);
+		cout << "d" << j << "是k" << j << "的右孩子" << endl;
+	}
 }
