@@ -7,3 +7,4 @@ void TestBinaryTree();
 void TestRBTree();
 void TestDynamicProgramming();
 void TestPermutation();
+void TestNumberTheory();

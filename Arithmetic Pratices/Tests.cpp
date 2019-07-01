@@ -157,3 +157,16 @@ void TestPermutation()
 	cout << "测试递归全排列：" << endl;
 	RecursivePermutation(s);
 }
+
+void TestNumberTheory()
+{
+	//测试欧几里徳最大公约数算法
+	int a = 99, b = 78;
+	cout << "测试欧几里得最大公约数算法：";
+	cout << a << "和" << b << "的最大公约数为:" << EuclidGCD(a, b) << endl;
+	//测试欧几里徳最大公约数算法推广
+	int d, x, y;
+	ExtendedEuclidGCD(d, x, y, a, b);
+	cout << "测试欧几里得最大公约数算法推广：";
+	cout << d << '=' << x << "*" << a << '+' << y << "*" << b << endl;
+}

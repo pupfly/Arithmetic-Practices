@@ -8,5 +8,6 @@ int main()
 	TestRBTree();
 	TestDynamicProgramming();
 	TestPermutation();
+	TestNumberTheory();
 	return 0;
 }
