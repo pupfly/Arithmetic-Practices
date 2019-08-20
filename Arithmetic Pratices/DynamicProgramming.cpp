@@ -251,3 +251,41 @@ void ConstructOptimalBST(int **root, int i, int j)
 		cout << "d" << j << "ÊÇk" << j << "µÄÓÒº¢×Ó" << endl;
 	}
 }
+
+bool isMatch(string s, string p)
+{
+	bool** dp = new bool*[s.length() + 1];
+	
+	for (int i = 0; i < s.length() + 1; i++)
+	{
+		dp[i] = new bool[p.length() + 1];
+		for (int j = 0; j < p.length() + 1; j++)
+		{
+			dp[i][j] = false;
+		}
+	}
+	
+	dp[s.length()][p.length()] = true;
+	for (int i = s.length(); i >= 0; i--)
+	{
+		for (int j = p.length() - 1; j >= 0; j--)
+		{
+			bool first_match = i < s.length() && (s[i] == p[j] || p[j] == '.');
+			if (j + 1 < p.length() && p[j + 1] == '*')
+			{
+				dp[i][j] = (first_match && dp[i + 1][j]) || dp[i][j + 2];
+			}
+			else
+			{
+				dp[i][j] = first_match && dp[i + 1][j + 1];
+			}
+		}
+	}
+	bool r = dp[0][0];
+	for (int i = 0; i < s.length() + 1; i++)
+	{
+		delete[] dp[i];
+	}
+	delete[] dp;
+	return r;
+}

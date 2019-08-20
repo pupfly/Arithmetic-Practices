@@ -19,3 +19,5 @@ void PrintLCS(int**, string, size_t, size_t);
 //最优二叉查找树
 void OptimalBST(vector<double>, vector<double>);
 void ConstructOptimalBST(int**, int, int);
+//正则表达式匹配
+bool isMatch(string s, string p);
